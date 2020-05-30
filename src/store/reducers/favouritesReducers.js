@@ -1,4 +1,4 @@
-import { TYPES } from '../types/favouriteTypes';
+import { Types } from '../Types';
 
 const initialState = {
   items: [],
@@ -16,9 +16,9 @@ const removeFromFavourite = (state, { id }) => {
 
 export const favouritesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case TYPES.FAVOURITE_ADD:
+    case Types.FAVOURITE_ADD:
       return addToFavourite(state, action);
-    case TYPES.FAVOURITE_REMOVE:
+    case Types.FAVOURITE_REMOVE:
       return removeFromFavourite(state, action);
     default:
       return state;

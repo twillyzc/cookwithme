@@ -1,11 +1,9 @@
-import { TYPES } from '../types/favouriteTypes';
-
 export const addFavourite = (id) => ({
-  type: TYPES.FAVOURITE_ADD,
-  id,
+  type: 'FAVOURITE_ADD',
+  payload: { id },
 });
 
 export const removeFavourite = (id) => ({
-  type: TYPES.FAVOURITE_REMOVE,
-  id,
+  type: 'FAVOURITE_REMOVE',
+  payload: { id },
 });
