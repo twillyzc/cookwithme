@@ -1,15 +1,11 @@
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { reducer } from './reducers';
-import { all } from 'redux-saga/effects';
-import recipeSagas from './sagas/recipeSagas';
+import { rootReducer } from './reducers';
+import { watchFetchData } from './sagas/recipeSagas';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 const sagaMiddleware = createSagaMiddleware();
 
-export const store = createStore(reducer, applyMiddleware(sagaMiddleware));
+export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
 
-sagaMiddleware.run(recipeSagas);
-
-export default function* rootSaga() {
-  yield all([...recipeSagas]);
-}
+sagaMiddleware.run(watchFetchData);

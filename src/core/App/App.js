@@ -7,7 +7,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {this.props.recipes.items}
+        {this.props.recipes.items.map((el, i) => {
+          return <h1 key={i}>{el.title}</h1>;
+        })}
         <button onClick={() => this.props.getDataRequest()}>CLick to Add POst</button>
       </div>
     );
