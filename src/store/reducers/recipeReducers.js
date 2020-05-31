@@ -16,8 +16,7 @@ const initialState = {
 
 export const recipeReducer = (state = initialState, action) => {
   switch (action.type) {
-    case Types.GET_DATA_SUCCESS:
-      console.log('redux ->', action);
+    case Types.RECIPES_GET_DATA_SUCCESS:
       return {
         items: action.payload,
       };

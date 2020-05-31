@@ -1,21 +1,20 @@
-import { takeEvery, call, fork, put } from 'redux-saga/effects';
+import { takeEvery, call, put } from 'redux-saga/effects';
 import { Types } from '../Types';
+import { fetchUrl, API_KEY, API_URL } from '../../core/api';
 
-const api = (url) => fetch(url).then((res) => res.json());
-
-function* fetchData() {
+function* recipesListFetchData(action) {
   try {
     const recipes = yield call(
-      api,
-      'https://api.spoonacular.com/recipes/search?query=pizza&apiKey=eabcd8e465554eb996d607d272f86d49'
+      fetchUrl,
+      `${API_URL}/recipes/search?query=${action.payload}&apiKey=${API_KEY}`
     );
 
-    yield put({ type: Types.GET_DATA_SUCCESS, payload: recipes.results });
+    yield put({ type: Types.RECIPES_GET_DATA_SUCCESS, payload: recipes.results });
   } catch (e) {
     console.log(e);
   }
 }
 
-export function* watchFetchData() {
-  yield takeEvery(Types.GET_DATA_REQUEST, fetchData);
+export function* recipesListWatchFetchData() {
+  yield takeEvery(Types.RECIPES_GET_DATA_REQUEST, recipesListFetchData);
 }
