@@ -1,28 +1,17 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { getRecipesRequest } from '../../store/actions/repiceActions';
 import './App.css';
 import Search from '../../components/Search/Search';
+import RecipeList from '../../components/RecipesList/RecipeList';
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
         <Search></Search>
-        <ul>
-          {this.props.recipes.items.map((el, i) => {
-            return <li key={i}>{el.title}</li>;
-          })}
-        </ul>
+        <RecipeList></RecipeList>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    recipes: state.recipes,
-  };
-};
-
-export default connect(mapStateToProps, { getRecipesRequest })(App);
+export default App;

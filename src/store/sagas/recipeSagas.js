@@ -6,7 +6,7 @@ function* recipesListFetchData(action) {
   try {
     const recipes = yield call(
       fetchUrl,
-      `${API_URL}/recipes/search?query=${action.payload}&apiKey=${API_KEY}`
+      `${API_URL}/recipes/search?query=${action.payload}&number=100&apiKey=${API_KEY}`
     );
 
     yield put({ type: Types.RECIPES_GET_DATA_SUCCESS, payload: recipes.results });
