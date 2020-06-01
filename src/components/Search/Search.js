@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getRecipesRequest } from '../../store/actions/repiceActions';
+import { getRecipesRequest } from '../../store/actions/repicesActions';
 
 class Search extends React.Component {
   state = {

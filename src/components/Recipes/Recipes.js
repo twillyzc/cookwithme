@@ -2,14 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { FixedSizeList as List } from 'react-window';
 
-class RecipeList extends React.Component {
+class Recipes extends React.Component {
   render() {
     const { items: recipes } = this.props.recipes;
-    console.log(recipes);
     const Row = ({ index, style }) => <div style={style}>Row {recipes[index].title}</div>;
 
     return (
-      <div className="RecipeList">
+      <div className="Recipes">
         <List height={150} itemCount={recipes.length} itemSize={35} width={300}>
           {Row}
         </List>
@@ -24,4 +23,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(RecipeList);
+export default connect(mapStateToProps)(Recipes);

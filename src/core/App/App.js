@@ -1,15 +1,14 @@
 import React from 'react';
 import './App.css';
-import Search from '../../components/Search/Search';
-import RecipeList from '../../components/RecipesList/RecipeList';
+import { Route, Switch } from 'react-router-dom';
+import Main from '../Main/Main';
 
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <Search></Search>
-        <RecipeList></RecipeList>
-      </div>
+      <Switch>
+        <Route path="/" component={Main} exact />
+      </Switch>
     );
   }
 }

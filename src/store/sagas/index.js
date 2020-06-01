@@ -1,4 +1,4 @@
-import { recipesListWatchFetchData } from './recipeSagas';
+import { recipesListWatchFetchData } from './recipesSagas';
 import { fork } from 'redux-saga/effects';
 
 export function* rootSaga() {
