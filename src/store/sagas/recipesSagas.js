@@ -2,7 +2,7 @@ import { takeEvery, call, put } from 'redux-saga/effects';
 import { Types } from '../Types';
 import { fetchUrl, API_KEY, API_URL } from '../../core/api';
 
-function* recipesListFetchData(action) {
+function* recipesFetchData(action) {
   try {
     const recipes = yield call(
       fetchUrl,
@@ -15,6 +15,6 @@ function* recipesListFetchData(action) {
   }
 }
 
-export function* recipesListWatchFetchData() {
-  yield takeEvery(Types.RECIPES_GET_DATA_REQUEST, recipesListFetchData);
+export function* recipesWatchFetchData() {
+  yield takeEvery(Types.RECIPES_GET_DATA_REQUEST, recipesFetchData);
 }
