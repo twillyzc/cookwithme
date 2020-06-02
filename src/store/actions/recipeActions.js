@@ -5,7 +5,15 @@ export const getRecipeRequest = (id) => ({
   payload: id,
 });
 
-export const getRecipeSuccess = ({ data }) => ({
-  type: Types.RECIPE_GET_DATA_SUCCESS,
-  payload: data,
+
+
+export const getRecipeLoading = ({isLoading}) => ({
+  type: Types.RECIPE_GET_DATA_LOADING,
+  payload: isLoading,
 });
+
+export const getRecipeSuccess = (recipe) => ({
+  type: Types.RECIPE_GET_DATA_SUCCESS,
+  payload: recipe,
+});
+

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getRecipesRequest } from '../../store/actions/repicesActions';
+import { getRecipesRequest } from '../../store/actions/recipesActions';
 
 class Search extends React.Component {
   state = {
@@ -11,7 +11,8 @@ class Search extends React.Component {
 
   handleClick = () => {
     const { inputValue } = this.state;
-    this.props.getRecipesRequest(inputValue);
+    const {items: recipes} = this.props.recipes;
+    this.props.getRecipesRequest({inputValue, offset: recipes.length});
     this.setState({ inputValue: '' });
   };
 
@@ -32,4 +33,10 @@ class Search extends React.Component {
   }
 }
 
-export default connect(null, { getRecipesRequest })(Search);
+const mapStateToProps = (state) => {
+  return {
+    recipes: state.recipes,
+  };
+};
+
+export default connect(mapStateToProps, { getRecipesRequest })(Search);

@@ -1,25 +1,34 @@
 import { Types } from '../Types';
 
 const initialState = {
-  items: [
-    {
-      id: 492560,
-      title: 'Quick and Easy St. Louis-Style Pizza',
-      readyInMinutes: 27,
-      servings: 8,
-      sourceUrl: 'https://www.cinnamonspiceandeverythingnice.com/st-louis-style-pizza/',
-      openLicense: 0,
-      image: 'St--Louis-Style-Pizza-492560.jpg',
-    },
-  ],
+  items: [],
+  isLoading: false,
+  totalResults: 0,
+  currentSearch: ''
 };
 
 export const recipesReducer = (state = initialState, action) => {
-  switch (action.type) {
+  const { type, payload } = action;
+  switch (type) {
     case Types.RECIPES_GET_DATA_SUCCESS:
       return {
-        items: action.payload,
+        ...state,
+        items: [...payload.results],
+        totalResults: payload.totalResults
       };
+
+    case Types.RECIPES_GET_DATA_LOADING:
+      return {...state, isLoading: payload};
+
+    case Types.RECIPES_GET_DATA_LOAD_MORE_SUCCESS:
+      return {
+        ...state,
+        items: [...state.items, ...payload.results],
+      };
+
+    case Types.RECIPES_SET_CURRENT_SEARCH:
+      return {...state, currentSearch: payload.value};
+
     default:
       return state;
   }
