@@ -20,10 +20,9 @@ export const getRecipesLoadMoreSuccess = (recipes) => ({
   recipes,
 });
 
-export const getRecipesLoadMoreRequest = ({ value, offset }) => ({
+export const getRecipesLoadMoreRequest = (data) => ({
   type: Types.RECIPES_GET_DATA_LOAD_MORE_REQUEST,
-  value,
-  offset,
+  data,
 });
 
 export const setCurrentSearch = (currentSearch) => ({

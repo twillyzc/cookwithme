@@ -31,7 +31,7 @@ function* recipesFetchMoreData(action) {
     yield put(getRecipesLoading({ isLoading: true }));
     const recipes = yield call(
       fetchUrl,
-      `${API_URL}/recipes/search?query=${action.value}&number=10&offset=${action.offset}&apiKey=${API_KEY}`
+      `${API_URL}/recipes/search?query=${action.data.value}&number=10&offset=${action.data.offset}&apiKey=${API_KEY}`
     );
 
     yield put(getRecipesLoadMoreSuccess(recipes));

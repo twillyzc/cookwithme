@@ -8,28 +8,43 @@ const initialState = {
   baseUri: "",
 };
 
+const setRecipes = (state, { results, totalResults, baseUri }) => {
+  return {
+    ...state,
+    items: [...results],
+    totalResults,
+    baseUri,
+  };
+};
+
+const setLoading = (state, { isLoading }) => ({
+  ...state,
+  isLoading,
+});
+
+const loadMoreRecipes = (state, { recipes }) => ({
+  ...state,
+  items: [...state.items, ...recipes.results],
+});
+
+const setCurrentSearch = (state, { currentSearch }) => ({
+  ...state,
+  currentSearch,
+});
+
 export const recipesReducer = (state = initialState, action) => {
-  const { type, currentSearch, isLoading, recipes } = action;
-  switch (type) {
+  switch (action.type) {
     case Types.RECIPES_GET_DATA_SUCCESS:
-      return {
-        ...state,
-        items: [...recipes.results],
-        totalResults: recipes.totalResults,
-        baseUri: recipes.baseUri,
-      };
+      return setRecipes(state, action);
 
     case Types.RECIPES_GET_DATA_LOADING:
-      return { ...state, isLoading };
+      return setLoading(state, action);
 
     case Types.RECIPES_GET_DATA_LOAD_MORE_SUCCESS:
-      return {
-        ...state,
-        items: [...state.items, ...recipes.results],
-      };
+      return loadMoreRecipes(state, action);
 
     case Types.RECIPES_SET_CURRENT_SEARCH:
-      return { ...state, currentSearch };
+      return setCurrentSearch(state, action);
 
     default:
       return state;
