@@ -9,27 +9,27 @@ const initialState = {
 };
 
 export const recipesReducer = (state = initialState, action) => {
-  const { type, payload } = action;
+  const { type, currentSearch, isLoading, recipes } = action;
   switch (type) {
     case Types.RECIPES_GET_DATA_SUCCESS:
       return {
         ...state,
-        items: [...payload.results],
-        totalResults: payload.totalResults,
-        baseUri: payload.baseUri,
+        items: [...recipes.results],
+        totalResults: recipes.totalResults,
+        baseUri: recipes.baseUri,
       };
 
     case Types.RECIPES_GET_DATA_LOADING:
-      return { ...state, isLoading: payload };
+      return { ...state, isLoading };
 
     case Types.RECIPES_GET_DATA_LOAD_MORE_SUCCESS:
       return {
         ...state,
-        items: [...state.items, ...payload.results],
+        items: [...state.items, ...recipes.results],
       };
 
     case Types.RECIPES_SET_CURRENT_SEARCH:
-      return { ...state, currentSearch: payload.value };
+      return { ...state, currentSearch };
 
     default:
       return state;

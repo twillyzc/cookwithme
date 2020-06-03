@@ -14,8 +14,7 @@ class Search extends React.Component {
 
   handleClick = () => {
     const { inputValue } = this.state;
-    const { items: recipes } = this.props.recipes;
-    this.props.getRecipesRequest({ inputValue, offset: recipes.length });
+    this.props.getRecipesRequest(inputValue);
     this.setState({ inputValue: "" });
   };
 

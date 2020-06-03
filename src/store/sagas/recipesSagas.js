@@ -14,13 +14,13 @@ function* recipesFetchData(action) {
 
     const recipes = yield call(
       fetchUrl,
-      `${API_URL}/recipes/search?query=${action.payload.inputValue}&number=10&apiKey=${API_KEY}`
+      `${API_URL}/recipes/search?query=${action.inputValue}&number=10&apiKey=${API_KEY}`
     );
 
     yield put(getRecipesSuccess(recipes));
 
     yield put(getRecipesLoading({ isLoading: false }));
-    yield put(setCurrentSearch(action.payload.inputValue));
+    yield put(setCurrentSearch(action.inputValue));
   } catch (e) {
     console.log(e);
   }
@@ -31,7 +31,7 @@ function* recipesFetchMoreData(action) {
     yield put(getRecipesLoading({ isLoading: true }));
     const recipes = yield call(
       fetchUrl,
-      `${API_URL}/recipes/search?query=${action.payload.value}&number=10&offset=${action.payload.offset}&apiKey=${API_KEY}`
+      `${API_URL}/recipes/search?query=${action.value}&number=10&offset=${action.offset}&apiKey=${API_KEY}`
     );
 
     yield put(getRecipesLoadMoreSuccess(recipes));
