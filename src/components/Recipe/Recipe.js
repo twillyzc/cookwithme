@@ -2,6 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import { getRecipeRequest } from "../../store/actions/recipeActions";
 import { withRouter } from "react-router-dom";
+import styled from "styled-components";
+
+const Paragraph = styled.p`
+  font-size: 30px;
+`;
 
 class Recipe extends React.Component {
   componentDidMount() {
@@ -18,7 +23,7 @@ class Recipe extends React.Component {
           <p>Loading</p>
         ) : (
           <div className="recipe__container">
-            <h1>{recipe.title}</h1> <p>{recipe.instructions}</p>
+            <h1>{recipe.title}</h1> <Paragraph>{recipe.instructions}</Paragraph>
           </div>
         )}
       </article>

@@ -35,7 +35,7 @@ const setCurrentSearch = (state, { currentSearch }) => ({
 export const recipesReducer = (state = initialState, action) => {
   switch (action.type) {
     case Types.RECIPES_GET_DATA_SUCCESS:
-      return setRecipes(state, action);
+      return setRecipes(state, action.recipes);
 
     case Types.RECIPES_GET_DATA_LOADING:
       return setLoading(state, action);
