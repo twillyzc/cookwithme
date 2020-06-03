@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getRecipesLoadMoreRequest } from "../../store/actions/recipesActions";
-import ListComponent from "../ListComponent/ListComponent";
+import List from "../List/List";
 
 class Recipes extends React.Component {
   render() {
@@ -21,14 +21,12 @@ class Recipes extends React.Component {
     const hasMoreItems = totalResults - recipes.length > 0;
 
     return (
-      <div className="Recipes">
-        <ListComponent
-          hasNextPage={hasMoreItems}
-          isNextPageLoading={isLoading}
-          items={recipes}
-          loadNextPage={loadMoreItems}
-        ></ListComponent>
-      </div>
+      <List
+        hasNextPage={hasMoreItems}
+        isNextPageLoading={isLoading}
+        items={recipes}
+        loadNextPage={loadMoreItems}
+      ></List>
     );
   }
 }

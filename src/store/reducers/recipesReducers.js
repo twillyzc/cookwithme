@@ -5,6 +5,7 @@ const initialState = {
   isLoading: false,
   totalResults: 0,
   currentSearch: "",
+  baseUri: "",
 };
 
 export const recipesReducer = (state = initialState, action) => {
@@ -15,6 +16,7 @@ export const recipesReducer = (state = initialState, action) => {
         ...state,
         items: [...payload.results],
         totalResults: payload.totalResults,
+        baseUri: payload.baseUri,
       };
 
     case Types.RECIPES_GET_DATA_LOADING:

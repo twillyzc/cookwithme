@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getRecipesRequest } from "../../store/actions/recipesActions";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 
 class Search extends React.Component {
   state = {
@@ -17,23 +19,27 @@ class Search extends React.Component {
     this.setState({ inputValue: "" });
   };
 
-  handleKeyPress = ({ key }) => {
-    if (key === "Enter") {
+  handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
       this.handleClick();
     }
   };
 
   render() {
     return (
-      <div className="Search">
-        <h1>search</h1>
-        <input
+      <form>
+        <TextField
+          label="Search"
           type="text"
           onChange={this.handleChange}
           onKeyPress={this.handleKeyPress}
-        ></input>
-        <button onClick={() => this.handleClick()}>search recipes</button>
-      </div>
+          variant="filled"
+        ></TextField>
+        <Button variant="contained" onClick={() => this.handleClick()}>
+          search recipes
+        </Button>
+      </form>
     );
   }
 }

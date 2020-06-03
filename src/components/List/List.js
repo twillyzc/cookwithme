@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { FixedSizeList as List } from "react-window";
+import { FixedSizeList } from "react-window";
 import { Link } from "react-router-dom";
 import InfiniteLoader from "react-window-infinite-loader";
 
-class ListComponent extends React.Component {
+class List extends React.Component {
   render() {
     const { items: recipes, hasNextPage, loadNextPage } = this.props;
 
@@ -34,16 +34,16 @@ class ListComponent extends React.Component {
         loadMoreItems={loadNextPage}
       >
         {({ onItemsRendered, ref }) => (
-          <List
+          <FixedSizeList
             onItemsRendered={onItemsRendered}
             ref={ref}
-            height={150}
+            height={400}
             itemCount={itemCount}
-            itemSize={35}
-            width={300}
+            itemSize={50}
+            width={700}
           >
             {Item}
-          </List>
+          </FixedSizeList>
         )}
       </InfiniteLoader>
     );
@@ -56,4 +56,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(ListComponent);
+export default connect(mapStateToProps)(List);

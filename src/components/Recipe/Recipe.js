@@ -13,15 +13,15 @@ class Recipe extends React.Component {
     const { recipe, isLoading } = this.props;
 
     return (
-      <div className="Recipe">
+      <article className="Recipe">
         {isLoading ? (
           <p>Loading</p>
         ) : (
-          <div>
+          <div className="recipe__container">
             <h1>{recipe.title}</h1> <p>{recipe.instructions}</p>
           </div>
         )}
-      </div>
+      </article>
     );
   }
 }
