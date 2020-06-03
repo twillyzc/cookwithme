@@ -1,11 +1,11 @@
-import { Types } from '../Types';
+import { Types } from "../Types";
 
-export const getRecipesRequest = ({inputValue}) => ({
+export const getRecipesRequest = ({ inputValue }) => ({
   type: Types.RECIPES_GET_DATA_REQUEST,
-  payload: {inputValue},
+  payload: { inputValue },
 });
 
-export const getRecipesLoading = ({isLoading}) => ({
+export const getRecipesLoading = ({ isLoading }) => ({
   type: Types.RECIPES_GET_DATA_LOADING,
   payload: isLoading,
 });
@@ -20,12 +20,12 @@ export const getRecipesLoadMoreSuccess = (recipe) => ({
   payload: recipe,
 });
 
-export const getRecipesLoadMoreRequest = ({value, offset}) => ({
+export const getRecipesLoadMoreRequest = ({ value, offset }) => ({
   type: Types.RECIPES_GET_DATA_LOAD_MORE_REQUEST,
-  payload: {value, offset},
+  payload: { value, offset },
 });
 
 export const setCurrentSearch = (searchString) => ({
   type: Types.RECIPES_SET_CURRENT_SEARCH,
-  payload: {value: searchString}
-})
+  payload: { value: searchString },
+});

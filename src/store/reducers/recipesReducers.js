@@ -1,10 +1,10 @@
-import { Types } from '../Types';
+import { Types } from "../Types";
 
 const initialState = {
   items: [],
   isLoading: false,
   totalResults: 0,
-  currentSearch: ''
+  currentSearch: "",
 };
 
 export const recipesReducer = (state = initialState, action) => {
@@ -14,11 +14,11 @@ export const recipesReducer = (state = initialState, action) => {
       return {
         ...state,
         items: [...payload.results],
-        totalResults: payload.totalResults
+        totalResults: payload.totalResults,
       };
 
     case Types.RECIPES_GET_DATA_LOADING:
-      return {...state, isLoading: payload};
+      return { ...state, isLoading: payload };
 
     case Types.RECIPES_GET_DATA_LOAD_MORE_SUCCESS:
       return {
@@ -27,7 +27,7 @@ export const recipesReducer = (state = initialState, action) => {
       };
 
     case Types.RECIPES_SET_CURRENT_SEARCH:
-      return {...state, currentSearch: payload.value};
+      return { ...state, currentSearch: payload.value };
 
     default:
       return state;

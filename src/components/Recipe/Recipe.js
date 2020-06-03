@@ -1,7 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { getRecipeRequest } from '../../store/actions/recipeActions';
-import { withRouter } from 'react-router-dom';
+import React from "react";
+import { connect } from "react-redux";
+import { getRecipeRequest } from "../../store/actions/recipeActions";
+import { withRouter } from "react-router-dom";
 
 class Recipe extends React.Component {
   componentDidMount() {
@@ -14,7 +14,13 @@ class Recipe extends React.Component {
 
     return (
       <div className="Recipe">
-        {isLoading ? <p>Loading</p> :<div> <h1>{recipe.title}</h1> <p>{recipe.instructions}</p></div>}
+        {isLoading ? (
+          <p>Loading</p>
+        ) : (
+          <div>
+            <h1>{recipe.title}</h1> <p>{recipe.instructions}</p>
+          </div>
+        )}
       </div>
     );
   }
@@ -23,8 +29,10 @@ class Recipe extends React.Component {
 const mapStateToProps = (state) => {
   return {
     recipe: state.recipe.item,
-    isLoading: state.recipe.isLoading
+    isLoading: state.recipe.isLoading,
   };
 };
 
-export default connect(mapStateToProps, { getRecipeRequest })(withRouter(Recipe));
+export default connect(mapStateToProps, { getRecipeRequest })(
+  withRouter(Recipe)
+);

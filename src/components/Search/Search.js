@@ -1,23 +1,24 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { getRecipesRequest } from '../../store/actions/recipesActions';
+import React from "react";
+import { connect } from "react-redux";
+import { getRecipesRequest } from "../../store/actions/recipesActions";
 
 class Search extends React.Component {
   state = {
-    inputValue: '',
+    inputValue: "",
   };
 
-  handleChange = ({ target: { value } }) => this.setState({ inputValue: value });
+  handleChange = ({ target: { value } }) =>
+    this.setState({ inputValue: value });
 
   handleClick = () => {
     const { inputValue } = this.state;
-    const {items: recipes} = this.props.recipes;
-    this.props.getRecipesRequest({inputValue, offset: recipes.length});
-    this.setState({ inputValue: '' });
+    const { items: recipes } = this.props.recipes;
+    this.props.getRecipesRequest({ inputValue, offset: recipes.length });
+    this.setState({ inputValue: "" });
   };
 
   handleKeyPress = ({ key }) => {
-    if (key === 'Enter') {
+    if (key === "Enter") {
       this.handleClick();
     }
   };
@@ -26,7 +27,11 @@ class Search extends React.Component {
     return (
       <div className="Search">
         <h1>search</h1>
-        <input type="text" onChange={this.handleChange} onKeyPress={this.handleKeyPress}></input>
+        <input
+          type="text"
+          onChange={this.handleChange}
+          onKeyPress={this.handleKeyPress}
+        ></input>
         <button onClick={() => this.handleClick()}>search recipes</button>
       </div>
     );

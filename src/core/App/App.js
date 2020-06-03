@@ -1,8 +1,8 @@
-import React from 'react';
-import './App.css';
-import { Route, Switch } from 'react-router-dom';
-import Main from '../Main/Main';
-import Detail from '../Detail/Detail';
+import React from "react";
+import "./App.css";
+import { Route, Switch } from "react-router-dom";
+import Main from "../../screens/Main/Main";
+import Detail from "../../screens/Detail/Detail";
 
 class App extends React.Component {
   render() {

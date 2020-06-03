@@ -1,11 +1,11 @@
-import { takeLatest, call, put } from 'redux-saga/effects';
-import { Types } from '../Types';
-import { fetchUrl, API_KEY, API_URL } from '../../core/api';
-import {getRecipeLoading,getRecipeSuccess} from '../actions/recipeActions'
+import { takeLatest, call, put } from "redux-saga/effects";
+import { Types } from "../Types";
+import { fetchUrl, API_KEY, API_URL } from "../../core/api";
+import { getRecipeLoading, getRecipeSuccess } from "../actions/recipeActions";
 
 function* recipeFetchData(action) {
   try {
-    yield put(getRecipeLoading({isLoading: true}))
+    yield put(getRecipeLoading({ isLoading: true }));
 
     const recipe = yield call(
       fetchUrl,
@@ -13,8 +13,7 @@ function* recipeFetchData(action) {
     );
 
     yield put(getRecipeSuccess(recipe));
-    yield put(getRecipeLoading({isLoading: false}))
-
+    yield put(getRecipeLoading({ isLoading: false }));
   } catch (e) {
     console.log(e);
   }

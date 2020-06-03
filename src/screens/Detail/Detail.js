@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import Recipe from '../../components/Recipe/Recipe';
+import Recipe from "../../components/Recipe/Recipe";
 
 class Detail extends React.Component {
   render() {
