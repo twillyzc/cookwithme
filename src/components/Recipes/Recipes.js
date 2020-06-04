@@ -18,6 +18,7 @@ class Recipes extends React.Component {
       totalResults,
       isLoading,
       currentSearch,
+      baseUri,
     } = this.props.recipes;
 
     const loadMoreItems = async () =>
@@ -35,6 +36,7 @@ class Recipes extends React.Component {
           isNextPageLoading={isLoading}
           items={recipes}
           loadNextPage={loadMoreItems}
+          baseUri={baseUri}
         />
       </Container>
     );
