@@ -42,6 +42,7 @@
     ]
   },
   "devDependencies": {
+    "@material-ui/icons": "^4.9.1",
     "styled-components": "^5.1.1"
   }
 }

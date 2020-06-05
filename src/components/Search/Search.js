@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getRecipesRequest } from "../../store/actions/recipesActions";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
+
+import { SearchContainer, IconSearch, Input } from "./Search-styles";
 
 class Search extends React.Component {
   state = {
@@ -27,18 +27,14 @@ class Search extends React.Component {
 
   render() {
     return (
-      <form>
-        <TextField
-          label="Search"
-          type="text"
+      <SearchContainer>
+        <IconSearch></IconSearch>
+        <Input
+          placeholder="Search…"
           onChange={this.handleChange}
           onKeyPress={this.handleKeyPress}
-          variant="filled"
-        ></TextField>
-        <Button variant="contained" onClick={() => this.handleClick()}>
-          search recipes
-        </Button>
-      </form>
+        />
+      </SearchContainer>
     );
   }
 }

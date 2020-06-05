@@ -69,7 +69,7 @@ class List extends React.Component {
             height={400}
             itemCount={itemCount}
             itemSize={50}
-            width={700}
+            width={1200}
           >
             {Item}
           </FixedSizeList>

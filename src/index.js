@@ -6,13 +6,15 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
-
+import { StylesProvider } from "@material-ui/core/styles";
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>,
+  <StylesProvider injectFirst>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </StylesProvider>,
   document.getElementById("root")
 );
 
