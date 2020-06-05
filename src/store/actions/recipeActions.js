@@ -2,15 +2,15 @@ import { Types } from "../Types";
 
 export const getRecipeRequest = (id) => ({
   type: Types.RECIPE_GET_DATA_REQUEST,
-  payload: id,
+  id,
 });
 
 export const getRecipeLoading = ({ isLoading }) => ({
   type: Types.RECIPE_GET_DATA_LOADING,
-  payload: isLoading,
+  isLoading,
 });
 
-export const getRecipeSuccess = (recipe) => ({
+export const getRecipeSuccess = (item) => ({
   type: Types.RECIPE_GET_DATA_SUCCESS,
-  payload: recipe,
+  item,
 });

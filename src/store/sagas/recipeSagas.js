@@ -9,7 +9,7 @@ function* recipeFetchData(action) {
 
     const recipe = yield call(
       fetchUrl,
-      `${API_URL}/recipes/${action.payload}/information?apiKey=${API_KEY}`
+      `${API_URL}/recipes/${action.id}/information?apiKey=${API_KEY}`
     );
 
     yield put(getRecipeSuccess(recipe));

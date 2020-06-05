@@ -5,21 +5,22 @@ const initialState = {
   isLoading: false,
 };
 
-const getData = (state, action) => ({
+const getData = (state, { item }) => ({
   ...state,
-  item: action.payload,
+  item,
+});
+
+const dataIsLoading = (state, { isLoading }) => ({
+  ...state,
+  isLoading,
 });
 
 export const recipeReducer = (state = initialState, action) => {
-  const { type, payload } = action;
-  switch (type) {
+  switch (action.type) {
     case Types.RECIPE_GET_DATA_SUCCESS:
       return getData(state, action);
     case Types.RECIPE_GET_DATA_LOADING:
-      return {
-        ...state,
-        isLoading: payload,
-      };
+      return dataIsLoading(state, action);
     default:
       return state;
   }
