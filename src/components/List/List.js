@@ -7,6 +7,10 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
 
+function ListItemLink(props) {
+  return <ListItem button component={Link} {...props} />;
+}
+
 class List extends React.Component {
   calcTime = (time) => {
     if (time > 60) {
@@ -23,10 +27,6 @@ class List extends React.Component {
     const itemCount = hasNextPage ? recipes.length + 1 : recipes.length;
 
     const isItemLoaded = (index) => !hasNextPage || index < recipes.length;
-
-    function ListItemLink(props) {
-      return <ListItem button component={Link} {...props} />;
-    }
 
     const Item = ({ index, style }) => {
       let content;
@@ -66,10 +66,10 @@ class List extends React.Component {
           <FixedSizeList
             onItemsRendered={onItemsRendered}
             ref={ref}
-            height={400}
+            height={750}
             itemCount={itemCount}
-            itemSize={50}
-            width={1200}
+            itemSize={65}
+            width={900}
           >
             {Item}
           </FixedSizeList>

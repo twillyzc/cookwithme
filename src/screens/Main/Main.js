@@ -10,7 +10,6 @@ class Main extends React.Component {
       <div className="Recipes">
         <Header></Header>
         <main>
-          <Search></Search>
           <Recipes></Recipes>
         </main>
       </div>
