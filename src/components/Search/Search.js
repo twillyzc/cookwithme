@@ -1,9 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getRecipesRequest } from "../../store/actions/recipesActions";
-
-import { SearchContainer, IconSearch, Input } from "./Search-styles";
-
+import { IconSearch, Input, SearchContainer } from "./Search-styles";
 class Search extends React.Component {
   state = {
     inputValue: "",
@@ -28,7 +26,7 @@ class Search extends React.Component {
   render() {
     return (
       <SearchContainer>
-        <IconSearch></IconSearch>
+        <IconSearch />
         <Input
           placeholder="Search…"
           onChange={this.handleChange}
