@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { getRecipesRequest } from "../../store/actions/recipesActions";
 import { IconSearch, Input, SearchContainer } from "./Search-styles";
+import { withRouter } from "react-router-dom";
+
 class Search extends React.Component {
   state = {
     inputValue: "",
@@ -14,6 +16,7 @@ class Search extends React.Component {
     const { inputValue } = this.state;
     this.props.getRecipesRequest(inputValue);
     this.setState({ inputValue: "" });
+    this.props.history.push("/");
   };
 
   handleKeyPress = (e) => {
@@ -26,7 +29,7 @@ class Search extends React.Component {
   render() {
     return (
       <SearchContainer>
-        <IconSearch />
+        <IconSearch onClick={this.handleClick} />
         <Input
           placeholder="Search…"
           onChange={this.handleChange}
@@ -43,4 +46,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { getRecipesRequest })(Search);
+export default connect(mapStateToProps, { getRecipesRequest })(
+  withRouter(Search)
+);

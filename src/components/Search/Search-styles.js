@@ -18,6 +18,11 @@ export const IconSearch = styled(SearchIcon)`
   justify-content: center;
   align-self: center;
   right: 10px;
+  transition: 0.2s;
+  &:hover {
+    color: aqua;
+    cursor: pointer;
+  }
 `;
 
 export const Input = styled(InputBase)`
