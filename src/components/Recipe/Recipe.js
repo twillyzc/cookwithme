@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getRecipeRequest } from "../../store/actions/recipeActions";
 import { withRouter } from "react-router-dom";
 import { Paragraph, Image } from "./Recipe-styles";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 class Recipe extends React.Component {
   componentDidMount() {
@@ -22,7 +23,7 @@ class Recipe extends React.Component {
     return (
       <article className="Recipe">
         {isLoading ? (
-          <p>Loading</p>
+          <CircularProgress />
         ) : (
           <div>
             <h1>{recipe.title}</h1>

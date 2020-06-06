@@ -6,19 +6,17 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
-
-function ListItemLink(props) {
-  return <ListItem button component={Link} {...props} />;
-}
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 class List extends React.Component {
   calcTime = (time) => {
     if (time > 60) {
-      const hours = Math.floor(time / 60);
-      return hours === 1 ? `${hours} hour ` : `${hours} hours`;
-    }
+      const minutes = time % 60;
+      const hours = (time - minutes) / 60;
 
-    return time === 1 ? `${time} minute` : `${time} minutes`;
+      return `${hours} hour(s) ${minutes} minute(s)`;
+    }
+    return `${time} minute(s)`;
   };
 
   render() {
@@ -33,26 +31,25 @@ class List extends React.Component {
 
       if (!isItemLoaded(index)) {
         content = (
-          <ListItem button>
-            <ListItemAvatar>
-              <Avatar src="" />
-            </ListItemAvatar>
-            <ListItemText>Loading</ListItemText>
+          <ListItem>
+            <CircularProgress />
           </ListItem>
         );
-      } else {
-        content = (
-          <ListItemLink to={`/recipe/${recipes[index].id}`}>
-            <ListItemAvatar>
-              <Avatar src={`${baseUri + recipes[index].id}-90x90.jpg`}></Avatar>
-            </ListItemAvatar>
-            <ListItemText
-              primary={recipes[index].title}
-              secondary={this.calcTime(recipes[index].readyInMinutes)}
-            ></ListItemText>
-          </ListItemLink>
-        );
+        return <div style={style}>{content}</div>;
       }
+
+      content = (
+        <ListItem button component={Link} to={`/recipe/${recipes[index].id}`}>
+          <ListItemAvatar>
+            <Avatar src={`${baseUri + recipes[index].id}-90x90.jpg`} />
+          </ListItemAvatar>
+
+          <ListItemText
+            primary={recipes[index].title}
+            secondary={this.calcTime(recipes[index].readyInMinutes)}
+          ></ListItemText>
+        </ListItem>
+      );
       return <div style={style}>{content}</div>;
     };
 

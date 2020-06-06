@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Paragraph = styled.p`
-  //font-size: 30px;
+  color: rgba(31, 32, 65, 1);
 `;
 
 export const Image = styled.div`
