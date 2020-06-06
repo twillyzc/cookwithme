@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getRecipesRequest } from "../../store/actions/recipesActions";
-import { IconSearch, Input, SearchContainer } from "./Search-styles";
+import { Container, Input, Icon } from "./Search-styles";
 import { withRouter } from "react-router-dom";
 
 class Search extends React.Component {
@@ -30,14 +30,14 @@ class Search extends React.Component {
 
   render() {
     return (
-      <SearchContainer>
-        <IconSearch onClick={this.handleClick} />
+      <Container>
+        <Icon onClick={this.handleClick} />
         <Input
           placeholder="Search…"
           onChange={this.handleChange}
           onKeyPress={this.handleKeyPress}
         />
-      </SearchContainer>
+      </Container>
     );
   }
 }

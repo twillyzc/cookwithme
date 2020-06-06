@@ -3,21 +3,22 @@ import { Link as RouterLink } from "react-router-dom";
 
 export const Container = styled.header`
   width: 100%;
-  height: 70px;
+  height: 90px;
+  padding: 10px 10px;
 `;
 
 export const Wrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr repeat(2, auto-fit);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 export const SearchContainer = styled.div`
   width: 250px;
   transition: 0.2s;
-  grid-column: 2/3;
-  grid-row: 1/-1;
+  order: -1;
 
   &:focus-within {
     width: 275px;
@@ -27,10 +28,6 @@ export const SearchContainer = styled.div`
 export const Nav = styled.nav`
   list-style: none;
   display: flex;
-  flex-flow: row wrap;
-  flex: 0 1 100%;
-  grid-column: 3/4;
-  grid-row: 1/-1;
 `;
 
 export const Item = styled.li`

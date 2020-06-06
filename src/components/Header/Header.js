@@ -21,7 +21,7 @@ class Header extends React.Component {
                 <Link to="/">Home</Link>
               </Item>
               <Item>
-                <mLink to="/about">About</mLink>
+                <Link to="/about">About</Link>
               </Item>
             </Menu>
           </Nav>

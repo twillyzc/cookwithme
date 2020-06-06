@@ -7,6 +7,8 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import AutoSizer from "react-virtualized-auto-sizer";
+import { Container } from "./List-styles";
 
 class List extends React.Component {
   calcTime = (time) => {
@@ -54,24 +56,30 @@ class List extends React.Component {
     };
 
     return (
-      <InfiniteLoader
-        isItemLoaded={isItemLoaded}
-        itemCount={itemCount}
-        loadMoreItems={loadNextPage}
-      >
-        {({ onItemsRendered, ref }) => (
-          <FixedSizeList
-            onItemsRendered={onItemsRendered}
-            ref={ref}
-            height={750}
-            itemCount={itemCount}
-            itemSize={65}
-            width={900}
-          >
-            {Item}
-          </FixedSizeList>
-        )}
-      </InfiniteLoader>
+      <Container>
+        <AutoSizer>
+          {({ height, width }) => (
+            <InfiniteLoader
+              isItemLoaded={isItemLoaded}
+              itemCount={itemCount}
+              loadMoreItems={loadNextPage}
+            >
+              {({ onItemsRendered, ref }) => (
+                <FixedSizeList
+                  onItemsRendered={onItemsRendered}
+                  ref={ref}
+                  height={height}
+                  itemCount={itemCount}
+                  itemSize={65}
+                  width={width}
+                >
+                  {Item}
+                </FixedSizeList>
+              )}
+            </InfiniteLoader>
+          )}
+        </AutoSizer>
+      </Container>
     );
   }
 }

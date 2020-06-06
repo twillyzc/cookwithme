@@ -2,14 +2,14 @@ import styled from "styled-components";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 
-export const SearchContainer = styled.div`
+export const Container = styled.div`
   position: relative;
   width: auto;
   display: flex;
   color: #403c40;
 `;
 
-export const IconSearch = styled(SearchIcon)`
+export const Icon = styled(SearchIcon)`
   position: absolute;
   display: flex;
   align-items: center;
@@ -29,11 +29,9 @@ export const IconSearch = styled(SearchIcon)`
 export const Input = styled(InputBase)`
   border: 1px solid rgba(31, 32, 65, 0.25);
   border-radius: 20px;
+  width: 100%;
+  padding: 0 35px 0 20px;
   &:hover {
     border: 1px solid rgba(31, 32, 65, 0.5);
   }
-
-  width: 100%;
-
-  padding: 0 30px;
 `;
