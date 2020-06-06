@@ -8,7 +8,6 @@ import {
   HeaderNavMenu,
   NavItemLink,
 } from "./Header-styles";
-import { Link } from "react-router-dom";
 
 class Header extends React.Component {
   render() {
@@ -22,9 +21,6 @@ class Header extends React.Component {
             <NavItem>
               <NavItemLink to="/about">About</NavItemLink>
             </NavItem>
-
-            {/*<Link to="/recipe/334354"><NavItem></NavItem></Link>*/}
-            {/*<Link to="/"><NavItem></NavItem></Link>*/}
           </HeaderNavMenu>
         </HeaderNav>
         <HeaderSearch>
