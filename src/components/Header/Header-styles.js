@@ -10,7 +10,7 @@ export const HeaderWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: 1fr repeat(2, auto-fit);
 `;
 
 export const HeaderSearch = styled.div`
@@ -34,6 +34,8 @@ export const HeaderNav = styled.nav`
 `;
 
 export const NavItem = styled.li`
+  display: flex;
+  align-items: center;
   padding: 0 10px;
 `;
 
