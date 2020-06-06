@@ -7,25 +7,28 @@ import {
   NavItem,
   HeaderNavMenu,
   NavItemLink,
+  HeaderWrapper,
 } from "./Header-styles";
 
 class Header extends React.Component {
   render() {
     return (
       <HeaderContainer>
-        <HeaderNav>
-          <HeaderNavMenu>
-            <NavItem>
-              <NavItemLink to="/">Home</NavItemLink>
-            </NavItem>
-            <NavItem>
-              <NavItemLink to="/about">About</NavItemLink>
-            </NavItem>
-          </HeaderNavMenu>
-        </HeaderNav>
-        <HeaderSearch>
-          <Search />
-        </HeaderSearch>
+        <HeaderWrapper>
+          <HeaderNav>
+            <HeaderNavMenu>
+              <NavItem>
+                <NavItemLink to="/">Home</NavItemLink>
+              </NavItem>
+              <NavItem>
+                <NavItemLink to="/about">About</NavItemLink>
+              </NavItem>
+            </HeaderNavMenu>
+          </HeaderNav>
+          <HeaderSearch>
+            <Search />
+          </HeaderSearch>
+        </HeaderWrapper>
       </HeaderContainer>
     );
   }

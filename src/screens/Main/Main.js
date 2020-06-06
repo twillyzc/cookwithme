@@ -1,6 +1,7 @@
 import React from "react";
 import Recipes from "../../components/Recipes/Recipes";
 import Header from "../../components/Header/Header";
+import { Container } from "../../components/Layout/Layout-styles";
 
 class Main extends React.Component {
   componentDidMount() {
@@ -12,7 +13,9 @@ class Main extends React.Component {
       <div className="Recipes">
         <Header></Header>
         <main>
-          <Recipes></Recipes>
+          <Container>
+            <Recipes />
+          </Container>
         </main>
       </div>
     );

@@ -2,6 +2,7 @@ import React from "react";
 
 import Header from "../../components/Header/Header";
 import About from "../../components/About/About";
+import { Container } from "../../components/Layout/Layout-styles";
 
 class AboutPage extends React.Component {
   componentDidMount() {
@@ -12,7 +13,9 @@ class AboutPage extends React.Component {
     return (
       <div className="About">
         <Header></Header>
-        <About></About>
+        <Container>
+          <About />
+        </Container>
       </div>
     );
   }

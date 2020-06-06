@@ -4,8 +4,13 @@ import { Link } from "react-router-dom";
 export const HeaderContainer = styled.header`
   width: 100%;
   height: 70px;
+`;
+
+export const HeaderWrapper = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr repeat(2, max-content);
+  grid-template-columns: 1fr auto auto;
 `;
 
 export const HeaderSearch = styled.div`
