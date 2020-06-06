@@ -14,9 +14,11 @@ class Search extends React.Component {
 
   handleClick = () => {
     const { inputValue } = this.state;
-    this.props.getRecipesRequest(inputValue);
-    this.setState({ inputValue: "" });
-    this.props.history.push("/");
+    if (inputValue) {
+      this.props.getRecipesRequest(inputValue);
+      this.setState({ inputValue: "" });
+      this.props.history.push("/");
+    }
   };
 
   handleKeyPress = (e) => {

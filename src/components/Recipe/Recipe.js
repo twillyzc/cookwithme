@@ -2,11 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { getRecipeRequest } from "../../store/actions/recipeActions";
 import { withRouter } from "react-router-dom";
-import styled from "styled-components";
-
-const Paragraph = styled.p`
-  font-size: 30px;
-`;
+import { Paragraph, Image } from "./Recipe-styles";
 
 class Recipe extends React.Component {
   componentDidMount() {
@@ -28,8 +24,14 @@ class Recipe extends React.Component {
         {isLoading ? (
           <p>Loading</p>
         ) : (
-          <div className="recipe__container">
+          <div>
             <h1>{recipe.title}</h1>
+            <Image>
+              <img
+                src={this.props.recipe.image}
+                alt={this.props.recipe.title}
+              />
+            </Image>
             <Paragraph>{this.removeTags(recipe.instructions)}</Paragraph>
           </div>
         )}

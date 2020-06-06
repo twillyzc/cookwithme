@@ -43,9 +43,7 @@ export const HeaderNavMenu = styled.ul`
 `;
 
 export const NavItemLink = styled(Link)`
-  text-decoration: none;
-  color: #6f4541;
   &:hover {
-    color: #6f4541;
+    color: rgba(31, 32, 65, 0.5);
   }
 `;

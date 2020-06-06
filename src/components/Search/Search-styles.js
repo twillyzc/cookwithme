@@ -13,28 +13,27 @@ export const IconSearch = styled(SearchIcon)`
   position: absolute;
   display: flex;
   align-items: center;
-  color: inherit;
+  color: rgba(31, 32, 65, 0.5);
+
   z-index: 1;
   justify-content: center;
   align-self: center;
   right: 10px;
   transition: 0.2s;
   &:hover {
-    color: aqua;
     cursor: pointer;
+    color: rgba(31, 32, 65, 0.75);
   }
 `;
 
 export const Input = styled(InputBase)`
-  //background-color: #fff;
-  border: 1px solid rgb(204, 86, 45, 0.3);
-  color: #d6cead;
+  border: 1px solid rgba(31, 32, 65, 0.25);
   border-radius: 20px;
   &:hover {
-    border: 1px solid rgb(204, 86, 45, 0.7);
+    border: 1px solid rgba(31, 32, 65, 0.5);
   }
 
   width: 100%;
 
-  padding-left: 40px;
+  padding: 0 30px;
 `;
