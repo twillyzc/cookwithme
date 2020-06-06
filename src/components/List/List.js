@@ -44,7 +44,7 @@ class List extends React.Component {
         content = (
           <ListItemLink to={`/recipe/${recipes[index].id}`}>
             <ListItemAvatar>
-              <Avatar src={baseUri + recipes[index].image}></Avatar>
+              <Avatar src={`${baseUri + recipes[index].id}-90x90.jpg`}></Avatar>
             </ListItemAvatar>
             <ListItemText
               primary={recipes[index].title}
