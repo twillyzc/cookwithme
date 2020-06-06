@@ -11,12 +11,12 @@ class Detail extends React.Component {
 
   render() {
     return (
-      <div className="Detail">
+      <>
         <Header />
         <Container>
           <Recipe />
         </Container>
-      </div>
+      </>
     );
   }
 }

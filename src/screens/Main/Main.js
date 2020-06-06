@@ -10,14 +10,14 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div className="Recipes">
+      <>
         <Header></Header>
         <main>
           <Container>
             <Recipes />
           </Container>
         </main>
-      </div>
+      </>
     );
   }
 }

@@ -1,19 +1,19 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
-export const HeaderContainer = styled.header`
+export const Container = styled.header`
   width: 100%;
   height: 70px;
 `;
 
-export const HeaderWrapper = styled.div`
+export const Wrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr repeat(2, auto-fit);
 `;
 
-export const HeaderSearch = styled.div`
+export const SearchContainer = styled.div`
   width: 250px;
   transition: 0.2s;
   grid-column: 2/3;
@@ -24,7 +24,7 @@ export const HeaderSearch = styled.div`
   }
 `;
 
-export const HeaderNav = styled.nav`
+export const Nav = styled.nav`
   list-style: none;
   display: flex;
   flex-flow: row wrap;
@@ -33,18 +33,18 @@ export const HeaderNav = styled.nav`
   grid-row: 1/-1;
 `;
 
-export const NavItem = styled.li`
+export const Item = styled.li`
   display: flex;
   align-items: center;
   padding: 0 10px;
 `;
 
-export const HeaderNavMenu = styled.ul`
+export const Menu = styled.ul`
   display: flex;
   list-style: none;
 `;
 
-export const NavItemLink = styled(Link)`
+export const Link = styled(RouterLink)`
   &:hover {
     color: rgba(31, 32, 65, 0.5);
   }

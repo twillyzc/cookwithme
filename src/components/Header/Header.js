@@ -1,35 +1,35 @@
 import React from "react";
 import Search from "../Search/Search";
 import {
-  HeaderSearch,
-  HeaderContainer,
-  HeaderNav,
-  NavItem,
-  HeaderNavMenu,
-  NavItemLink,
-  HeaderWrapper,
+  Container,
+  SearchContainer,
+  Link,
+  Item,
+  Menu,
+  Nav,
+  Wrapper,
 } from "./Header-styles";
 
 class Header extends React.Component {
   render() {
     return (
-      <HeaderContainer>
-        <HeaderWrapper>
-          <HeaderNav>
-            <HeaderNavMenu>
-              <NavItem>
-                <NavItemLink to="/">Home</NavItemLink>
-              </NavItem>
-              <NavItem>
-                <NavItemLink to="/about">About</NavItemLink>
-              </NavItem>
-            </HeaderNavMenu>
-          </HeaderNav>
-          <HeaderSearch>
+      <Container>
+        <Wrapper>
+          <Nav>
+            <Menu>
+              <Item>
+                <Link to="/">Home</Link>
+              </Item>
+              <Item>
+                <mLink to="/about">About</mLink>
+              </Item>
+            </Menu>
+          </Nav>
+          <SearchContainer>
             <Search />
-          </HeaderSearch>
-        </HeaderWrapper>
-      </HeaderContainer>
+          </SearchContainer>
+        </Wrapper>
+      </Container>
     );
   }
 }
