@@ -14,6 +14,12 @@ class Recipe extends React.Component {
     this.props.getRecipeRequest(id);
   }
 
+  removeTags = (text) => {
+    if (text) {
+      return text.replace(/<.*?>/g, "");
+    }
+  };
+
   render() {
     const { recipe, isLoading } = this.props;
 
@@ -23,7 +29,8 @@ class Recipe extends React.Component {
           <p>Loading</p>
         ) : (
           <div className="recipe__container">
-            <h1>{recipe.title}</h1> <Paragraph>{recipe.instructions}</Paragraph>
+            <h1>{recipe.title}</h1>
+            <Paragraph>{this.removeTags(recipe.instructions)}</Paragraph>
           </div>
         )}
       </article>
