@@ -4,6 +4,10 @@ import Header from "../../components/Header/Header";
 import About from "../../components/About/About";
 
 class AboutPage extends React.Component {
+  componentDidMount() {
+    document.title = "About Us";
+  }
+
   render() {
     return (
       <div className="About">

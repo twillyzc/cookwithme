@@ -1,10 +1,12 @@
 import React from "react";
-
-import Search from "../../components/Search/Search";
 import Recipes from "../../components/Recipes/Recipes";
 import Header from "../../components/Header/Header";
 
 class Main extends React.Component {
+  componentDidMount() {
+    document.title = "Home";
+  }
+
   render() {
     return (
       <div className="Recipes">
