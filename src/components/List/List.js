@@ -6,9 +6,9 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import AutoSizer from "react-virtualized-auto-sizer";
 import { Container } from "./List-styles";
+import Loader from "../Loader/Loader";
 
 class List extends React.Component {
   calcTime = (time) => {
@@ -22,7 +22,13 @@ class List extends React.Component {
   };
 
   render() {
-    const { items: recipes, hasNextPage, loadNextPage, baseUri } = this.props;
+    const {
+      items: recipes,
+      hasNextPage,
+      loadNextPage,
+      baseUri,
+      isNextPageLoading,
+    } = this.props;
 
     const itemCount = hasNextPage ? recipes.length + 1 : recipes.length;
 
@@ -32,11 +38,7 @@ class List extends React.Component {
       let content;
 
       if (!isItemLoaded(index)) {
-        content = (
-          <ListItem>
-            <CircularProgress />
-          </ListItem>
-        );
+        content = <Loader />;
         return <div style={style}>{content}</div>;
       }
 
@@ -57,28 +59,32 @@ class List extends React.Component {
 
     return (
       <Container>
-        <AutoSizer>
-          {({ height, width }) => (
-            <InfiniteLoader
-              isItemLoaded={isItemLoaded}
-              itemCount={itemCount}
-              loadMoreItems={loadNextPage}
-            >
-              {({ onItemsRendered, ref }) => (
-                <FixedSizeList
-                  onItemsRendered={onItemsRendered}
-                  ref={ref}
-                  height={height}
-                  itemCount={itemCount}
-                  itemSize={65}
-                  width={width}
-                >
-                  {Item}
-                </FixedSizeList>
-              )}
-            </InfiniteLoader>
-          )}
-        </AutoSizer>
+        {!recipes.length && isNextPageLoading ? (
+          <Loader />
+        ) : (
+          <AutoSizer>
+            {({ height, width }) => (
+              <InfiniteLoader
+                isItemLoaded={isItemLoaded}
+                itemCount={itemCount}
+                loadMoreItems={loadNextPage}
+              >
+                {({ onItemsRendered, ref }) => (
+                  <FixedSizeList
+                    onItemsRendered={onItemsRendered}
+                    ref={ref}
+                    height={height}
+                    itemCount={itemCount}
+                    itemSize={65}
+                    width={width}
+                  >
+                    {Item}
+                  </FixedSizeList>
+                )}
+              </InfiniteLoader>
+            )}
+          </AutoSizer>
+        )}
       </Container>
     );
   }

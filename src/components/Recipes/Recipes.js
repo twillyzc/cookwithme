@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { getRecipesLoadMoreRequest } from "../../store/actions/recipesActions";
 import List from "../List/List";
+import SnackbarContent from "@material-ui/core/SnackbarContent";
+import Loader from "../Loader/Loader";
 
 class Recipes extends React.Component {
   render() {
@@ -22,13 +24,23 @@ class Recipes extends React.Component {
     const hasMoreItems = totalResults - recipes.length > 0;
 
     return (
-      <List
-        hasNextPage={hasMoreItems}
-        isNextPageLoading={isLoading}
-        items={recipes}
-        loadNextPage={loadMoreItems}
-        baseUri={baseUri}
-      />
+      <>
+        {!recipes.length ? (
+          !recipes.length && isLoading ? (
+            <Loader />
+          ) : (
+            <SnackbarContent message="Start to search something" />
+          )
+        ) : (
+          <List
+            hasNextPage={hasMoreItems}
+            isNextPageLoading={isLoading}
+            items={recipes}
+            loadNextPage={loadMoreItems}
+            baseUri={baseUri}
+          />
+        )}
+      </>
     );
   }
 }
