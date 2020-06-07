@@ -3,14 +3,17 @@ import { connect } from "react-redux";
 import { getRecipesRequest } from "../../store/actions/recipesActions";
 import { Container, Input, Icon } from "./Search-styles";
 import { withRouter } from "react-router-dom";
+import debounce from "lodash.debounce";
 
 class Search extends React.Component {
   state = {
     inputValue: "",
   };
 
-  handleChange = ({ target: { value } }) =>
+  handleChange = ({ target: { value } }) => {
     this.setState({ inputValue: value });
+    this.debounceClick();
+  };
 
   handleClick = () => {
     const { inputValue } = this.state;
@@ -20,6 +23,8 @@ class Search extends React.Component {
       this.props.history.push("/");
     }
   };
+
+  debounceClick = debounce(this.handleClick, 350);
 
   handleKeyPress = (e) => {
     if (e.key === "Enter") {
@@ -32,11 +37,7 @@ class Search extends React.Component {
     return (
       <Container>
         <Icon onClick={this.handleClick} />
-        <Input
-          placeholder="Search…"
-          onChange={this.handleChange}
-          onKeyPress={this.handleKeyPress}
-        />
+        <Input placeholder="Search…" onChange={this.handleChange} />
       </Container>
     );
   }
