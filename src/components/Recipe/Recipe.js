@@ -2,8 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { getRecipeRequest } from "../../store/actions/recipeActions";
 import { withRouter } from "react-router-dom";
-import { Paragraph, Image } from "./Recipe-styles";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import { Paragraph, Image, Heading, Title } from "./Recipe-styles";
+import Loader from "../Loader/Loader";
 
 class Recipe extends React.Component {
   componentDidMount() {
@@ -21,20 +21,19 @@ class Recipe extends React.Component {
     const { recipe, isLoading } = this.props;
 
     return (
-      <article className="Recipe">
+      <article>
         {isLoading ? (
-          <CircularProgress />
+          <Loader />
         ) : (
-          <div>
-            <h1>{recipe.title}</h1>
-            <Image>
-              <img
-                src={this.props.recipe.image}
-                alt={this.props.recipe.title}
-              />
+          <>
+            <Image src={this.props.recipe.image}>
+              <Title>{recipe.title}</Title>
             </Image>
+            <Heading>About</Heading>
+            <Paragraph>{this.removeTags(recipe.summary)}</Paragraph>
+            <Heading>How to cook</Heading>
             <Paragraph>{this.removeTags(recipe.instructions)}</Paragraph>
-          </div>
+          </>
         )}
       </article>
     );
