@@ -35,56 +35,58 @@ class List extends React.Component {
     const isItemLoaded = (index) => !hasNextPage || index < recipes.length;
 
     const Item = ({ index, style }) => {
-      let content;
-
       if (!isItemLoaded(index)) {
-        content = <Loader />;
-        return <div style={style}>{content}</div>;
+        return (
+          <div style={style}>
+            <Loader />
+          </div>
+        );
       }
 
-      content = (
-        <ListItem button component={Link} to={`/recipe/${recipes[index].id}`}>
-          <ListItemAvatar>
-            <Avatar src={`${baseUri + recipes[index].id}-90x90.jpg`} />
-          </ListItemAvatar>
+      return (
+        <div style={style}>
+          <ListItem button component={Link} to={`/recipe/${recipes[index].id}`}>
+            <ListItemAvatar>
+              <Avatar src={`${baseUri + recipes[index].id}-90x90.jpg`} />
+            </ListItemAvatar>
 
-          <ListItemText
-            primary={recipes[index].title}
-            secondary={this.calcTime(recipes[index].readyInMinutes)}
-          ></ListItemText>
-        </ListItem>
+            <ListItemText
+              primary={recipes[index].title}
+              secondary={this.calcTime(recipes[index].readyInMinutes)}
+            ></ListItemText>
+          </ListItem>
+        </div>
       );
-      return <div style={style}>{content}</div>;
     };
+
+    if (!recipes.length && isNextPageLoading) {
+      return <Container>{<Loader />}</Container>;
+    }
 
     return (
       <Container>
-        {!recipes.length && isNextPageLoading ? (
-          <Loader />
-        ) : (
-          <AutoSizer>
-            {({ height, width }) => (
-              <InfiniteLoader
-                isItemLoaded={isItemLoaded}
-                itemCount={itemCount}
-                loadMoreItems={loadNextPage}
-              >
-                {({ onItemsRendered, ref }) => (
-                  <FixedSizeList
-                    onItemsRendered={onItemsRendered}
-                    ref={ref}
-                    height={height}
-                    itemCount={itemCount}
-                    itemSize={65}
-                    width={width}
-                  >
-                    {Item}
-                  </FixedSizeList>
-                )}
-              </InfiniteLoader>
-            )}
-          </AutoSizer>
-        )}
+        <AutoSizer>
+          {({ height, width }) => (
+            <InfiniteLoader
+              isItemLoaded={isItemLoaded}
+              itemCount={itemCount}
+              loadMoreItems={loadNextPage}
+            >
+              {({ onItemsRendered, ref }) => (
+                <FixedSizeList
+                  onItemsRendered={onItemsRendered}
+                  ref={ref}
+                  height={height}
+                  itemCount={itemCount}
+                  itemSize={65}
+                  width={width}
+                >
+                  {Item}
+                </FixedSizeList>
+              )}
+            </InfiniteLoader>
+          )}
+        </AutoSizer>
       </Container>
     );
   }

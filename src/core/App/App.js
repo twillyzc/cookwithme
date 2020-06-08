@@ -8,13 +8,15 @@ import Header from "../../components/Header/Header";
 
 class App extends React.Component {
   render() {
-    return (<>
-      <Header/>
-      <Switch>
-        <Route path="/" component={Main} exact />
-        <Route path="/recipe/:id" component={Detail} />
-        <Route path="/about" component={AboutPage} />
-      </Switch></>
+    return (
+      <>
+        <Header />
+        <Switch>
+          <Route path="/" component={Main} exact />
+          <Route path="/recipe/:id" component={Detail} />
+          <Route path="/about" component={AboutPage} />
+        </Switch>
+      </>
     );
   }
 }

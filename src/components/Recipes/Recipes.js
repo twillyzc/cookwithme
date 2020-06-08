@@ -23,24 +23,22 @@ class Recipes extends React.Component {
 
     const hasMoreItems = totalResults - recipes.length > 0;
 
+    if (!recipes.length && isLoading) {
+      return <Loader />;
+    }
+
+    if (!recipes.length) {
+      return <SnackbarContent message="Start to search something" />;
+    }
+
     return (
-      <>
-        {!recipes.length ? (
-          !recipes.length && isLoading ? (
-            <Loader />
-          ) : (
-            <SnackbarContent message="Start to search something" />
-          )
-        ) : (
-          <List
-            hasNextPage={hasMoreItems}
-            isNextPageLoading={isLoading}
-            items={recipes}
-            loadNextPage={loadMoreItems}
-            baseUri={baseUri}
-          />
-        )}
-      </>
+      <List
+        hasNextPage={hasMoreItems}
+        isNextPageLoading={isLoading}
+        items={recipes}
+        loadNextPage={loadMoreItems}
+        baseUri={baseUri}
+      />
     );
   }
 }

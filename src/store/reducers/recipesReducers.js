@@ -1,11 +1,11 @@
-import { Types } from '../Types';
+import { Types } from "../Types";
 
 const initialState = {
   items: [],
   isLoading: false,
   totalResults: 0,
-  currentSearch: '',
-  baseUri: '',
+  currentSearch: "",
+  baseUri: "",
 };
 
 const setRecipes = (state, { results, totalResults, baseUri }) => {
