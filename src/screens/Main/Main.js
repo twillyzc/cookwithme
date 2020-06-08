@@ -12,7 +12,6 @@ class Main extends React.Component {
           <meta charSet="utf-8" />
           <title>Home</title>
         </Helmet>
-        <Header></Header>
         <main>
           <Container>
             <Recipes />

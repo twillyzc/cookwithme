@@ -13,7 +13,6 @@ class Detail extends React.Component {
           <meta charSet="utf-8" />
           <title>Recipe Detail</title>
         </Helmet>
-        <Header />
         <Container>
           <Recipe />
         </Container>
