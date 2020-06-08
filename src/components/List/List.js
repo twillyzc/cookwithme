@@ -1,14 +1,16 @@
 import React from "react";
-import { FixedSizeList } from "react-window";
 import { Link } from "react-router-dom";
+import AutoSizer from "react-virtualized-auto-sizer";
+import { FixedSizeList } from "react-window";
 import InfiniteLoader from "react-window-infinite-loader";
+
 import ListItem from "@material-ui/core/ListItem";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
-import AutoSizer from "react-virtualized-auto-sizer";
-import { Container } from "./List-styles";
 import Loader from "../Loader/Loader";
+
+import { Container } from "./List-styles";
 
 class List extends React.Component {
   calcTime = (time) => {

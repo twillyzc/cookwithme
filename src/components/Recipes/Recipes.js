@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
+
 import { getRecipesLoadMoreRequest } from "../../store/actions/recipesActions";
-import List from "../List/List";
 import SnackbarContent from "@material-ui/core/SnackbarContent";
 import Loader from "../Loader/Loader";
+import List from "../List/List";
 
 class Recipes extends React.Component {
   render() {

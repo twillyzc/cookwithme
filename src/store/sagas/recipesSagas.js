@@ -1,6 +1,7 @@
 import { takeLatest, call, put } from "redux-saga/effects";
-import { Types } from "../Types";
+
 import { fetchUrl, API_KEY, API_URL } from "../../core/api";
+import { Types } from "../Types";
 import {
   getRecipesSuccess,
   getRecipesLoading,

@@ -1,10 +1,12 @@
 import React from "react";
-import "./App.css";
 import { Route, Switch } from "react-router-dom";
+
 import Main from "../../screens/Main/Main";
 import Detail from "../../screens/Detail/Detail";
 import AboutPage from "../../screens/AboutPage/AboutPage";
 import Header from "../../components/Header/Header";
+
+import "./App.css";
 
 class App extends React.Component {
   render() {

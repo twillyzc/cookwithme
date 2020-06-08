@@ -1,9 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getRecipeRequest } from "../../store/actions/recipeActions";
 import { withRouter } from "react-router-dom";
-import { Paragraph, Image, Heading, Title } from "./Recipe-styles";
+
+import { getRecipeRequest } from "../../store/actions/recipeActions";
 import Loader from "../Loader/Loader";
+
+import { Paragraph, Image, Heading, Title } from "./Recipe-styles";
 
 class Recipe extends React.Component {
   componentDidMount() {

@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getRecipesRequest } from "../../store/actions/recipesActions";
-import { Container, Input, Icon } from "./Search-styles";
 import { withRouter } from "react-router-dom";
 import debounce from "lodash.debounce";
+
+import { getRecipesRequest } from "../../store/actions/recipesActions";
+import { Container, Input, Icon } from "./Search-styles";
 
 class Search extends React.Component {
   state = {

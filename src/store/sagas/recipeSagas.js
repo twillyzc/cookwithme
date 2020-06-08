@@ -1,7 +1,8 @@
 import { takeLatest, call, put } from "redux-saga/effects";
-import { Types } from "../Types";
-import { fetchUrl, API_KEY, API_URL } from "../../core/api";
+
 import { getRecipeLoading, getRecipeSuccess } from "../actions/recipeActions";
+import { fetchUrl, API_KEY, API_URL } from "../../core/api";
+import { Types } from "../Types";
 
 function* recipeFetchData(action) {
   try {

@@ -1,8 +1,8 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
 import About from "../../components/About/About";
 import { Container } from "../../components/Layout/Layout-styles";
-import { Helmet } from "react-helmet";
 
 class AboutPage extends React.Component {
   render() {
